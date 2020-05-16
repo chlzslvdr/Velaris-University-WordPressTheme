@@ -1,12 +1,14 @@
 <?php
-    function greet($name, $color) {
-        echo "<p>Hi, my name is $name and my favorite color is $color.</p>";
+    $myName = "Feyre";
+
+    $names = array('Rhysand', 'Amren', 'Cassian', 'Azriel');
+    $count = 0 ;
+
+    while($count < count($names)) {
+        echo "<li>Hi, my name is $names[$count].</li>";
+        $count++;
     }
 
-    greet('John', 'blue');
-    greet('Jane', 'green');
 ?>
 
-<!-- Build in function on wp to display site name  and tagline-->
-<h1><?php bloginfo('name'); ?></h1>
-<p><?php bloginfo('description'); ?></p>
+<p>Hi my name is <? echo $myName; ?>.</p>
