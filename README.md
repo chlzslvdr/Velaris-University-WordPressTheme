@@ -8,3 +8,4 @@ Learn PHP, JavaScript, WordPress theming & the WP REST API to Create Custom & In
 
 ## Resources
 [Wordpress Theme Handbook](https://developer.wordpress.org/themes/getting-started)
+[Code Reference](https://developer.wordpress.org/reference)
