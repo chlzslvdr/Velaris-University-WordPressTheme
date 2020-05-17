@@ -1,6 +1,6 @@
 # Velaris-University-WordPressTheme
 
-This is a Demo Project base on [Udemy Wordpress Course](https://www.udemy.com/course/become-a-wordpress-developer-php-javascript).
+This is a Demo Project based on [Udemy Wordpress Course](https://www.udemy.com/course/become-a-wordpress-developer-php-javascript).
 
 ## Purpose
 
