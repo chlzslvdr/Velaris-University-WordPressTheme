@@ -17,8 +17,8 @@
             
             <div class="event-summary">
             <a class="event-summary__date t-center" href="#">
-                <span class="event-summary__month">Mar</span>
-                <span class="event-summary__day">25</span>  
+                <span class="event-summary__month">Apr</span>
+                <span class="event-summary__day">21</span>  
             </a>
             <div class="event-summary__content">
                 <h5 class="event-summary__title headline headline--tiny"><a href="#">Poetry in the 100</a></h5>
@@ -27,8 +27,8 @@
             </div>
             <div class="event-summary">
             <a class="event-summary__date t-center" href="#">
-                <span class="event-summary__month">Apr</span>
-                <span class="event-summary__day">02</span>  
+                <span class="event-summary__month">July</span>
+                <span class="event-summary__day">08</span>  
             </a>
             <div class="event-summary__content">
                 <h5 class="event-summary__title headline headline--tiny"><a href="#">Starlight Party</a></h5>
@@ -57,7 +57,7 @@
             <div class="event-summary">
             <a class="event-summary__date event-summary__date--beige t-center" href="#">
                 <span class="event-summary__month">Feb</span>
-                <span class="event-summary__day">04</span>  
+                <span class="event-summary__day">16</span>  
             </a>
             <div class="event-summary__content">
                 <h5 class="event-summary__title headline headline--tiny"><a href="#">Professors in the National Spotlight</a></h5>
