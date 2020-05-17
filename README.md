@@ -1,11 +1,10 @@
-# Velaris-University-WPTheme
+# Velaris-University-WordPressTheme
 
 This is a Demo Project made with [Udemy Wordpress Course](https://www.udemy.com/course/become-a-wordpress-developer-php-javascript).
 
 ## Purpose
 
 Learn PHP, JavaScript, WordPress theming & the WP REST API to Create Custom & Interactive WordPress Websites
-
 
 ## About
 
