@@ -16,7 +16,10 @@
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Campuses</a></li>
                     </ul>
-                    </nav>
+                    <!-- <?php wp_nav_menu(array(
+                    'theme_location' => 'footerLocationOne'
+                    )); ?>
+                    </nav> -->
                 </div>
 
                 <div class="site-footer__col-three">
