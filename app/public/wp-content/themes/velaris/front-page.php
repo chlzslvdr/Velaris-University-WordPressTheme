@@ -14,29 +14,33 @@
         <div class="full-width-split__one">
         <div class="full-width-split__inner">
             <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
+
+            <?php
+                $homePageEvents = new WP_Query(array(
+                    'posts_per_page' => 2,
+                    'post_type' => 'event'
+                ));
+
+                while ($homePageEvents->have_posts()) {
+                    $homePageEvents->the_post(); ?>
+                        <div class="event-summary">
+                        <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
+                            <span class="event-summary__month"><?php the_time('M'); ?></span>
+                            <span class="event-summary__day"><?php the_time('d'); ?></span>  
+                        </a>
+                        <div class="event-summary__content">
+                            <h5 class="event-summary__title headline headline--tiny">
+                                <a href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a>
+                            </h5>
+                            <p><?php echo wp_trim_words(get_the_content(), 16) ?>
+                                <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a>
+                            </p>
+                        </div>
+                    </div>
+                <?php } wp_reset_postdata();
+            ?>
             
-            <div class="event-summary">
-            <a class="event-summary__date t-center" href="#">
-                <span class="event-summary__month">Apr</span>
-                <span class="event-summary__day">21</span>  
-            </a>
-            <div class="event-summary__content">
-                <h5 class="event-summary__title headline headline--tiny"><a href="#">Poetry in the 100</a></h5>
-                <p>Bring poems you&rsquo;ve wrote to the 100 building this Tuesday for an open mic and snacks. <a href="#" class="nu gray">Learn more</a></p>
-            </div>
-            </div>
-            <div class="event-summary">
-            <a class="event-summary__date t-center" href="#">
-                <span class="event-summary__month">July</span>
-                <span class="event-summary__day">08</span>  
-            </a>
-            <div class="event-summary__content">
-                <h5 class="event-summary__title headline headline--tiny"><a href="#">Starlight Party</a></h5>
-                <p>Live music, a pizza truck and more can be found in our third annual starlight day. <a href="#" class="nu gray">Learn more</a></p>
-            </div>
-            </div>
-            
-            <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
+            <p class="t-center no-margin"><a href="<?php echo site_url('/events') ?>" class="btn btn--blue">View All Events</a></p>
 
         </div>
         </div>
