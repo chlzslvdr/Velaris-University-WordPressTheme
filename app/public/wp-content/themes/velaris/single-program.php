@@ -43,10 +43,14 @@
                         array(
                             'key' => 'related_programs',
                             'compare' => 'LIKE',
-                            'value' => '"' . get_the_ID() . '"'     // .(dot) means concatenate
+                            'value' => '"' . get_the_ID() . '"'     // .(dot) means concatenate or add on
                         )
                     )
                 ));
+
+                if ($homePageEvents->have_posts()) {
+                echo '<hr class="section-break"/>';
+                echo '<h2 class="headline headline--medium">Upcoming ' . get_the_title() . ' Events</h2>';
 
                 while ($homePageEvents->have_posts()) {
                     $homePageEvents->the_post(); ?>
@@ -59,7 +63,7 @@
                             <span class="event-summary__day"><?php
                                 $eventDate = new DateTime(get_field('event_date'));
                                 echo $eventDate->format('d');
-                            ?></span>  
+                            ?></span>
                         </a>
                         <div class="event-summary__content">
                             <h5 class="event-summary__title headline headline--tiny">
@@ -75,6 +79,8 @@
                         </div>
                     </div>
                 <?php } wp_reset_postdata();
+                }
+                
             ?>
 
         </div>
