@@ -41,9 +41,6 @@
                     <?php }
                     echo'</ul>';
                 }
-
-                // Similar to console.log
-                // print_r($relatedPrograms);
             ?>
 
         </div>
