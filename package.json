@@ -1,13 +1,13 @@
 {
     "name": "velaris-university",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "main": "index.js",
     "scripts": {
         "gulpwatch": "gulp watch",
         "gulpstyles": "gulp styles",
         "gulpscripts": "gulp scripts"
     },
-    "author": "",
+    "author": "Chelzea Salvador",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.5.5",
