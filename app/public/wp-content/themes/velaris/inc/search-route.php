@@ -4,7 +4,7 @@ add_action('rest_api_init', 'universityRegisterSearch');
 
 function universityRegisterSearch() {
     register_rest_route('university/v1', 'search', array(
-        'methods' => WP_REST_SERVER::READABLE,          // GET
+        'methods' => WP_REST_SERVER::READABLE,
         'callback' => 'universitySearchResults'
     ));
     }
@@ -19,7 +19,7 @@ function universityRegisterSearch() {
         'generalInfo' => array(),
         'professors' => array(),
         'programs' => array(),
-        'events' => array()
+        'events' => array(),
     );
 
     while($mainQuery->have_posts()) {
@@ -45,7 +45,8 @@ function universityRegisterSearch() {
         if (get_post_type() == 'program') {
         array_push($results['programs'], array(
             'title' => get_the_title(),
-            'permalink' => get_the_permalink()
+            'permalink' => get_the_permalink(),
+            'id' => get_the_id()
         ));
         }
 
@@ -68,30 +69,36 @@ function universityRegisterSearch() {
         }
     }
 
-    $programRelationshipQuery = new WP_Query(array(
-        'post_type' => 'professor',
-        'meta_query' => array(
-            array(
-                'key' => 'related_programs',
-                'compare' => 'LIKE',
-                'value' => '"82"',
-            )
-        )
-    ));
+    if ($results['programs']) {
+        $programsMetaQuery = array('relation' => 'OR');
 
-    while($programRelationshipQuery->have_posts()) {
-        $programRelationshipQuery->the_post();
-        
-        if (get_post_type() == 'professor') {
-            array_push($results['professors'], array(
-                'title' => get_the_title(),
-                'permalink' => get_the_permalink(),
-                'image' => get_the_post_thumbnail_url(0, 'professorLandscape')
+        foreach($results['programs'] as $item) {
+        array_push($programsMetaQuery, array(
+            'key' => 'related_programs',
+            'compare' => 'LIKE',
+            'value' => '"' . $item['id'] . '"'
             ));
         }
-    }
 
-    $results['professors'] = array_values(array_unique($results['professors'], SORT_REGULAR));
+        $programRelationshipQuery = new WP_Query(array(
+        'post_type' => 'professor',
+        'meta_query' => $programsMetaQuery
+        ));
+
+        while($programRelationshipQuery->have_posts()) {
+        $programRelationshipQuery->the_post();
+
+        if (get_post_type() == 'professor') {
+            array_push($results['professors'], array(
+            'title' => get_the_title(),
+            'permalink' => get_the_permalink(),
+            'image' => get_the_post_thumbnail_url(0, 'professorLandscape')
+            ));
+        }
+        }
+
+        $results['professors'] = array_values(array_unique($results['professors'], SORT_REGULAR));
+    }
 
     return $results;
 }
